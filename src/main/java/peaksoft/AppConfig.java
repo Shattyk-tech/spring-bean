@@ -1,7 +1,9 @@
 package peaksoft;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 @Configuration
 public class AppConfig {
@@ -10,5 +12,10 @@ public class AppConfig {
         HelloWorld helloWorld = new HelloWorld();
         helloWorld.setMessage("Hello World!");
         return helloWorld;
+    }
+    @Bean
+    @Scope("prototype")
+    public Cat catBean(){
+        return new Cat();
     }
 }
